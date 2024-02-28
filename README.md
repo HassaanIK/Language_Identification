@@ -23,3 +23,6 @@ def predict_language(text, model, cv, le):
     prediction = model.predict(text_vectorized)
     predicted_label = le.inverse_transform([np.argmax(prediction)])[0]  # Get the first element of the list
     return predicted_label
+sentence = 'random text'
+predicted_label = predict_language(sentence, model, cv, le)
+print(predicted_label)
