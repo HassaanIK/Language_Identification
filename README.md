@@ -4,7 +4,7 @@
 This project is a Flask web application that identifies the language of input text. It uses a machine learning model trained on text data to make predictions. The user inputs text into a form on the web app, and the app returns the predicted language.
 
 ### Steps
-- Data Collection: The data used for training is taken from [Kaggle]([URL](https://www.kaggle.com/datasets/zarajamshaid/language-identification-datasst)). It has 22 different languages.
+- Data Collection: The data used for training is taken from [Kaggle](https://www.kaggle.com/datasets/zarajamshaid/language-identification-datasst). It has 22 different languages.
 - Data Preprocessing: The input text is preprocessed to remove non alphanumeric characters, its tokenized and vectorized using `word_tokenize` and `CountVectorizer` from `nltk` and `scikit-learn`.
 - Model Training: The model used for training has 4 layers with 27M parameters. Complex architectures couldn’t be used because of insufficient GPUs.
 - Model Evaluation: The metrics for evaluation of the model used is accuracy, 97.89% of which is achieved.
