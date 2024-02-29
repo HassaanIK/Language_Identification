@@ -1,28 +1,33 @@
-# Language Identifier
----
+# Language Identification Web App
 
-## OVERVIEW
+### Overview
 This project is a Flask web application that identifies the language of input text. It uses a machine learning model trained on text data to make predictions. The user inputs text into a form on the web app, and the app returns the predicted language.
 
-## SPECIFICATIONS
-- The data used for training is taken from Kaggle. It has 22 different languages.
-- The text in the dataset has tokenization, non alphanumeric characters removal and vectorization applied to it.
-- The model used for training has 4 layers with 27M params which is enough for getting high accuracy. Complex architectures couldn’t be used because of not sufficient GPUs.
-- Techniques like early stopping, learning rate decay and weight decay are used while training to get the most accurate results.
-- The metrics used for evaluation is accuracy, 97.89% of which is achieved.
-- I usually use Pytorch but this time I used Tensorflow because converting tokens into tensors crashed the GPU constantly.
-- The project uses Flask, a lightweight web framework for Python, to create the web application.
-- The input text is preprocessed before being fed into the model for prediction.
-  
-## USAGE
+### Steps
+- Data Collection: The data used for training is taken from [Kaggle]([URL](https://www.kaggle.com/datasets/zarajamshaid/language-identification-datasst)). It has 22 different languages.
+- Data Preprocessing: The input text is preprocessed to remove non alphanumeric characters, its tokenized and vectorized using `word_tokenize` and `CountVectorizer` from `nltk` and `scikit-learn`.
+- Model Training: The model used for training has 4 layers with 27M parameters. Complex architectures couldn’t be used because of insufficient GPUs.
+- Model Evaluation: The metrics for evaluation of the model used is accuracy, 97.89% of which is achieved.
+- Web App Development: The Flask web application is developed to take user input and display the predicted language.
 
-```python
-def predict_language(text, model, cv, le):
-    cleaned_text = clean_text(text)
-    text_vectorized = cv.transform([cleaned_text])
-    prediction = model.predict(text_vectorized)
-    predicted_label = le.inverse_transform([np.argmax(prediction)])[0]  # Get the first element of the list
-    return predicted_label
-sentence = 'random text'
-predicted_label = predict_language(sentence, model, cv, le)
-print(predicted_label)
+### Techniques Used
+- Tokenization: Splitting the input text into tokens.
+- Vectorization: Converting tokens into its vectors.
+- Model Training: Using a machine learning model to learn patterns in the text data.
+- Model Callbacks: Using `EarlyStopping` and `lr_schedular` from tensorflow to get efficient training.
+- Flask Web Framework: Creating a web application to interact with the model using `Flask`.
+
+### Functions
+- `clean_text(text)`: Preprocesses the input text by removing non-alphanumeric characters and creating tokens.
+- `predict_language(text, model, cv, le)`: Uses the trained model to predict the language of the input text.
+  
+### Usage
+- Install the dependencies `pip install -r requirements.txt`
+- Run the Flask app: `python app.py`
+- Open a web browser and go to `http://localhost:5000`
+- Enter text into the form and submit to see the predicted language.
+
+### Web App
+![Screenshot (27)](https://github.com/HassaanIK/Language_Identification/assets/139614780/1e59ecc8-f8ea-4f63-9da5-ff5a06fa6381)
+![Screenshot (28)](https://github.com/HassaanIK/Language_Identification/assets/139614780/2b883da4-f0ca-40a1-a551-9284d657b730)
+
