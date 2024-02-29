@@ -8,7 +8,7 @@ This project is a Flask web application that identifies the language of input te
 - Data Preprocessing: The input text is preprocessed to remove non alphanumeric characters, its tokenized and vectorized using `word_tokenize` and `CountVectorizer` from `nltk` and `scikit-learn`.
 - Model Training: The model used for training has 4 layers with 27M parameters. Complex architectures couldn’t be used because of insufficient GPUs.
 - Model Evaluation: The metrics for evaluation of the model used is accuracy, 97.89% of which is achieved.
-- Model File: As the model was big so it couldn't be uploaded. You can get to the model [here](https://huggingface.co/hassaanik/Language_Identifier/blob/main/full_language_identifcation_modelf.h5)
+- Model File: As the model was big so it couldn't be uploaded. You can get to the model [here](https://huggingface.co/hassaanik/Language_Identifier/blob/main/full_language_identifcation_modelf.h5).
 - Web App Development: The Flask web application is developed to take user input and display the predicted language.
 
 ### Techniques Used
