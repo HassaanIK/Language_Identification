@@ -1,0 +1,1 @@
+model_link = "https://huggingface.co/hassaanik/Language_Identifier/blob/main/full_language_identifcation_modelf.h5"
